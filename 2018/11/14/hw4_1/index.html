@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Newhar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Hw 4-1              Canvas {             border: 1px solid black;         }                           var canvas = document.getElementById(&quot;canvas&quot;);         var ctx = canvas.getContext(&quot;2d&quot;)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Newhar">
+<meta property="og:url" content="http://yoursite.com/2018/11/14/hw4_1/index.html">
+<meta property="og:site_name" content="Newhar">
+<meta property="og:description" content="Hw 4-1              Canvas {             border: 1px solid black;         }                           var canvas = document.getElementById(&quot;canvas&quot;);         var ctx = canvas.getContext(&quot;2d&quot;)">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-14T14:34:19.239Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Newhar">
+<meta name="twitter:description" content="Hw 4-1              Canvas {             border: 1px solid black;         }                           var canvas = document.getElementById(&quot;canvas&quot;);         var ctx = canvas.getContext(&quot;2d&quot;)">
+  
+    <link rel="alternate" href="/atom.xml" title="Newhar" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Newhar</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hw4_1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/14/hw4_1/" class="article-date">
+  <time datetime="2018-11-14T14:32:55.509Z" itemprop="datePublished">2018-11-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hw 4-1</title>
+    <style>
+        Canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div><canvas width="1000" height="1000" id="canvas"></canvas></div>
+    <script type="text/javascript">
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        let elments = [];
+        let clickEvents = [];
+        let mouseX, mouseY
+
+        //도형 그리는 기본 함수
+        function make_rec(posX, posY, width, height, title) {
+            ctx.fillStyle = "rgba(0, 50, 200, 0.4)";
+            ctx.fillRect(posX, posY, width, height);
+            ctx.strokeRect(posX, posY, width, height);
+            ctx.font = "bold 20px 궁서체";
+            ctx.strokeText(title, posX + (width - ctx.measureText(title).width) / 2, posY + 30, width);
+           
+        }
+
+        //elements 배열에 저장하기위한 함수
+        function shape(id, x, y, w, h,type) {
+            this.id = id
+            this.x = x
+            this.y = y
+            this.w = w
+            this.h = h
+            this.type = type
+        }
+
+        //윈도우창 만드는 api
+        function create_window(id, x, y, w, h, title) {
+            elments.push(new shape(id, x, y, w, h));
+            make_rec(x, y, w, h, "");
+            make_rec(x, y, w, 40, title);
+            make_rec(x + 80, y + 150, 40, 40, "_");
+            make_rec(x + 125, y + 150, 40, 40, "X");
+            //clickEvents.push()
+
+        }
+
+        //버튼 api
+        function create_button(id, x, y, w, h, title) {
+            elments.push(new shape(id, x, y, w, h,'btn'));
+            make_rec(x, y, w, h, title);
+        }
+        //텍스트박스 api
+        function create_textbox(id, x, y, w, h, title) {
+            elments.push(new shape(id, x, y, w, h));
+            make_rec(x, y, w, h, title);
+        }
+        canvas.addEventListener('click', mouseclick)
+
+        function mouseclick(e) {
+            let rect = canvas.getBoundingClientRect();
+            mouseX = event.clientX - rect.left
+            mouseY = event.clientY - rect.top
+            let tempRect = (getElement(mouseX, mouseY))
+            if(tempRect.type == 'btn'){
+                alert('버튼입니다')
+            }
+        }
+
+        function getElement(x, y) {
+            for (let i = 0; i < elments.length; i++) {
+                let rect = elments[i];
+                if (x > rect.x && x < rect.x + rect.w && y > rect.y && y < rect.y + rect.h) {
+                    return rect;
+                }
+            }
+            return -1;
+        }
+
+        //그리는 함수
+        function draw() {
+            for (let i = 0; i < elments.length; i++) {
+
+            }
+            create_window('window1', 20, 70, 180, 200, "This is Window");
+            create_button('button1', 250, 80, 150, 150, "This is Button");
+            create_button('button2', 500, 500, 200, 200, "This is Button2");
+            create_textbox('text1', 500, 150, 150, 60, "This is Text");
+            create_textbox('text2', 150, 600, 250, 50, "This is Text2");
+        }
+
+
+        function initDraw(canvas) {
+            var mouse = {
+                x: 0,
+                y: 0,
+                startX: 0,
+                startY: 0
+            };
+        }
+
+        draw();
+    </script>
+
+</body>
+
+
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/14/hw4_1/" data-id="cjoh9odri0002h4uruimfk5od" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/23/hw3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hw3</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/14/hw4_1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/23/hw3/">hw3</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/02/hw2-1/">hw2</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/18/Revire-about-Hotel-Sites/">Review about Hotel Sites</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/18/Review-about-SIRI/">Review about SIRI</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 YeongJin Gwon<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
