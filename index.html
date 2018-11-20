@@ -77,11 +77,131 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        ss
+        <html lang="en">
+
+<head>
+    <title>Hw 4-1</title>
+    <style>
+        Canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <canvas width="1000" height="500" id="canvas"></canvas>
+    </div>
+    <script type="text/javascript">
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        //도형 그리는 기본 함수
+        function make_rec(posX, posY, width, height, title) {
+            ctx.fillStyle = "rgba(0, 50, 200, 0.4)";
+            ctx.fillRect(posX, posY, width, height);
+            ctx.strokeRect(posX, posY, width, height);
+            ctx.font = "bold 20px 궁서체";
+            ctx.fillText(title, posX + (width - ctx.measureText(title).width) / 2, posY + 30, width);
+        }
+
+        function make_tri(posX, posY, width, height) {
+            ctx.fillStyle = "hotpink";
+            ctx.beginPath();
+            ctx.moveTo(posX, posY);
+            ctx.lineTo(posX, posY + height);
+            ctx.lineTo(posX + width, (posY + height) / 2);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        class Tree {
+            constructor(id, label, type, x, y, w, h) {
+                this.id = id;
+                this.label = label;
+                this.num_of_nodes = 0;
+                this, type = type // 도형 형태
+                this.x = x
+                this.y = y
+                this.w = w
+                this.h = h
+                this.nodes = new Array();
+            }
+
+            create_root(id, label, type, x, y, w, h) {
+                this.id = id
+                this.label = label
+                this.type = type
+                this.x = x
+                this.y = y
+                this.w = w
+                this.h = h
+                    //make_rec(x, y, w, h, this.label);
+            }
+
+            add_node(node) {
+                this.nodes[node.id] = node;
+                this.num_of_nodes++;
+                //make_rec(x, y, w, h, this.label);
+            }
+
+            delete_node(node) {
+                delete this.nodes[node.id];
+                this.node_count--;
+            }
+
+            print_tree() {
+                if (this.id == "mainwindow") {
+                    make_rec(this.x, this.y, this.w, this.h, this.label)
+                } else {
+                    make_rec(this.x, this.y, this.w, this.h, this.label)
+                }
+                if (this.num_of_nodes > 0) {
+                    for (let node_id in this.nodes) {
+                        let node = this.nodes[node_id];
+                        node.print_tree()
+                    }
+                }
+            }
+        }
+
+        let mainwindow = new Tree()
+        mainwindow.create_root("mainwindow", "MusicPlayer", "rec", 50, 50, 500, 300)
+        mainwindow.add_node(new Tree("ButtonID1", "VolumeUp", "rec", 100, 100, 120, 50))
+        mainwindow.add_node(new Tree("ButtonID2", "VoulumDown", "rec", 100, 200, 120, 50))
+        mainwindow.add_node(new Tree("ButtonID3", "Play", "rec", 450, 80, 80, 60))
+        mainwindow.add_node(new Tree("ButtonID4", "Stop", "rec", 450, 160, 80, 60))
+        make_tri(10, 10, 50, 50)
+
+
+        let button1 = mainwindow.nodes["ButtonID1"]
+        button1.add_node(new Tree("subButtonID1", "Max", "rec", 250, 100, 80, 40))
+
+        mainwindow.delete_node(button1)
+
+        mainwindow.print_tree()
+            //윈도우창 (루트노드) - 볼륨조절, 플레이 , 스탑 버튼 (서브노드 3개) 
+            //볼륨조절제외하면 하위 자식노드인 미세볼륨도 같이 지워짐.
+    </script>
+    <div>
+        <dl>
+            <dt>Music Player : 루트 노드 </dt>
+            <dd>
+                <ul>
+                    <li> Volume Up : Music Player's 자식 노드 1 (Deleted with child node) </li>
+                    <li> Volume Max : Volume Up's 자식노드1 (Deleted with parent node) </li>
+                    <li> Volume Down : Music Player's 자식노드 2</li>
+                    <li> Play : Music Player's 자식노드 3</li>
+                    <li> Stop : Music Player's 자식노드 4</li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+</body></html>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/19/hw4_2/" data-id="cjopw5v9s0002wour7pj6vac1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/19/hw4_2/" data-id="cjopw709b0005nwur3f9d5c9c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/14/hw4_1/" data-id="cjopw5va50003wour8x4rgqlu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/14/hw4_1/" data-id="cjopw709a0004nwurz000ge1k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -279,7 +399,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/hw3/" data-id="cjopw5v9l0000wour6wut9xpj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/hw3/" data-id="cjopw70980003nwurxm0nihry" class="article-share-link">Share</a>
       
       
     </footer>
@@ -323,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/02/hw2-1/" data-id="cjopw5v9q0001wourgbz4s5oc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/02/hw2-1/" data-id="cjopw70960002nwur1kdidwoa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -364,7 +484,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/18/Revire-about-Hotel-Sites/" data-id="cjopw5va70004wourcdpbfj2r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/18/Revire-about-Hotel-Sites/" data-id="cjopw70940001nwur510m2a9x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -407,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/18/Review-about-SIRI/" data-id="cjopw5vay0005wourv8jty9ix" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/18/Review-about-SIRI/" data-id="cjopw708z0000nwurqootra28" class="article-share-link">Share</a>
       
       
     </footer>
