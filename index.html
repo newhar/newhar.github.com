@@ -65,144 +65,34 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hw4_2" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hw3_2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/11/19/hw4_2/" class="article-date">
-  <time datetime="2018-11-19T13:28:27.221Z" itemprop="datePublished">2018-11-19</time>
+    <a href="/2018/11/23/hw3_2/" class="article-date">
+  <time datetime="2018-11-23T14:40:11.000Z" itemprop="datePublished">2018-11-23</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/23/hw3_2/">hw3_2</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html>
-<html lang="en">
+        <h2 id="Resume-만들기"><a href="#Resume-만들기" class="headerlink" title="Resume 만들기"></a>Resume 만들기</h2><p> KLUMS에 업로드 했습니다.</p>
 
-<head>
-    <title>Hw 4-1</title>
-    <style>
-        #canvas {
-            border: 1px solid black;
-        }
-    </style>
-</head>
-
-<body>
-    <div>
-        <canvas width="1000" height="500" id="canvas"></canvas>
-    </div>
-    <script type="text/javascript">
-        var canvas = document.getElementById("canvas");
-        var ctx = canvas.getContext("2d");
-
-        //도형 그리는 기본 함수
-        function make_rec(posX, posY, width, height, title) {
-            ctx.fillStyle = "rgba(0, 50, 200, 0.4)";
-            ctx.fillRect(posX, posY, width, height);
-            ctx.strokeRect(posX, posY, width, height);
-            ctx.font = "bold 20px 궁서체";
-            ctx.fillText(title, posX + (width - ctx.measureText(title).width) / 2, posY + 30, width);
-        }
-
-        function make_tri(posX, posY, width, height) {
-            ctx.fillStyle = "hotpink";
-            ctx.beginPath();
-            ctx.moveTo(posX, posY);
-            ctx.lineTo(posX, posY + height);
-            ctx.lineTo(posX + width, (posY + height) / 2);
-            ctx.closePath();
-            ctx.fill();
-        }
-
-        class Tree {
-            constructor(id, label, type, x, y, w, h) {
-                this.id = id;
-                this.label = label;
-                this.num_of_nodes = 0;
-                this, type = type // 도형 형태
-                this.x = x
-                this.y = y
-                this.w = w
-                this.h = h
-                this.nodes = new Array();
-            }
-
-            create_root(id, label, type, x, y, w, h) {
-                this.id = id
-                this.label = label
-                this.type = type
-                this.x = x
-                this.y = y
-                this.w = w
-                this.h = h
-                    //make_rec(x, y, w, h, this.label);
-            }
-
-            add_node(node) {
-                this.nodes[node.id] = node;
-                this.num_of_nodes++;
-                //make_rec(x, y, w, h, this.label);
-            }
-
-            delete_node(node) {
-                delete this.nodes[node.id];
-                this.node_count--;
-            }
-
-            print_tree() {
-                if (this.id == "mainwindow") {
-                    make_rec(this.x, this.y, this.w, this.h, this.label)
-                } else {
-                    make_rec(this.x, this.y, this.w, this.h, this.label)
-                }
-                if (this.num_of_nodes > 0) {
-                    for (let node_id in this.nodes) {
-                        let node = this.nodes[node_id];
-                        node.print_tree()
-                    }
-                }
-            }
-        }
-
-        let mainwindow = new Tree()
-        mainwindow.create_root("mainwindow", "MusicPlayer", "rec", 50, 50, 500, 300)
-        mainwindow.add_node(new Tree("ButtonID1", "VolumeUp", "rec", 100, 100, 120, 50))
-        mainwindow.add_node(new Tree("ButtonID2", "VoulumDown", "rec", 100, 200, 120, 50))
-        mainwindow.add_node(new Tree("ButtonID3", "Play", "rec", 450, 80, 80, 60))
-        mainwindow.add_node(new Tree("ButtonID4", "Stop", "rec", 450, 160, 80, 60))
-        make_tri(10, 10, 50, 50)
-
-
-        let button1 = mainwindow.nodes["ButtonID1"]
-        button1.add_node(new Tree("subButtonID1", "Max", "rec", 250, 100, 80, 40))
-
-        mainwindow.delete_node(button1)
-
-        mainwindow.print_tree()
-            //윈도우창 (루트노드) - 볼륨조절, 플레이 , 스탑 버튼 (서브노드 3개) 
-            //볼륨조절제외하면 하위 자식노드인 미세볼륨도 같이 지워짐.
-    </script>
-    <div>
-        <dl>
-            <dt>Music Player : 루트 노드 </dt>
-            <dd>
-                <ul>
-                    <li> Volume Up : Music Player's 자식 노드 1 (Deleted with child node) </li>
-                    <li> Volume Max : Volume Up's 자식노드1 (Deleted with parent node) </li>
-                    <li> Volume Down : Music Player's 자식노드 2</li>
-                    <li> Play : Music Player's 자식노드 3</li>
-                    <li> Stop : Music Player's 자식노드 4</li>
-                </ul>
-            </dd>
-        </dl>
-    </div>
-</body></html>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/19/hw4_2/" data-id="cjopwbfc10005ckurijqztche" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/23/hw3_2/" data-id="cjoutbx5r0002s8urx0a2ip8x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,135 +102,34 @@
 
 
   
-    <article id="post-hw4_1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hw4_1_2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/11/14/hw4_1/" class="article-date">
-  <time datetime="2018-11-14T14:32:55.509Z" itemprop="datePublished">2018-11-14</time>
+    <a href="/2018/11/20/hw4_1_2/" class="article-date">
+  <time datetime="2018-11-20T14:40:11.000Z" itemprop="datePublished">2018-11-20</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/20/hw4_1_2/">hw4_1_2</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html>
-<html lang="en">
+        <h2 id="Canvas로-트리-그리기"><a href="#Canvas로-트리-그리기" class="headerlink" title="Canvas로 트리 그리기"></a>Canvas로 트리 그리기</h2><p> KLUMS에 업로드 했습니다.</p>
 
-<head>
-    <title>Hw 4-1</title>
-    <style>
-        Canvas {
-            border: 1px solid black;
-        }
-    </style>
-</head>
-
-<body>
-    <div><canvas width="1000" height="1000" id="canvas"></canvas></div>
-    <script type="text/javascript">
-        var canvas = document.getElementById("canvas");
-        var ctx = canvas.getContext("2d");
-        let elments = [];
-        let clickEvents = [];
-        let mouseX, mouseY
-
-        //도형 그리는 기본 함수
-        function make_rec(posX, posY, width, height, title) {
-            ctx.fillStyle = "rgba(0, 50, 200, 0.4)";
-            ctx.fillRect(posX, posY, width, height);
-            ctx.strokeRect(posX, posY, width, height);
-            ctx.font = "bold 20px 궁서체";
-            ctx.fillText(title, posX + (width - ctx.measureText(title).width) / 2, posY + 30, width);
-           
-        }
-
-        //elements 배열에 저장하기위한 함수
-        function shape(id, x, y, w, h,type) {
-            this.id = id
-            this.x = x
-            this.y = y
-            this.w = w
-            this.h = h
-            this.type = type
-        }
-
-        //윈도우창 만드는 api
-        function create_window(id, x, y, w, h, title) {
-            elments.push(new shape(id, x, y, w, h));
-            make_rec(x, y, w, h, "");
-            make_rec(x, y, w, 40, title);
-            make_rec(x + 80, y + 150, 40, 40, "_");
-            make_rec(x + 125, y + 150, 40, 40, "X");
-            //clickEvents.push()
-
-        }
-
-        //버튼 api
-        function create_button(id, x, y, w, h, title) {
-            elments.push(new shape(id, x, y, w, h,'btn'));
-            make_rec(x, y, w, h, title);
-        }
-        //텍스트박스 api
-        function create_textbox(id, x, y, w, h, title) {
-            elments.push(new shape(id, x, y, w, h));
-            make_rec(x, y, w, h, title);
-        }
-        canvas.addEventListener('click', mouseclick)
-
-        function mouseclick(e) {
-            let rect = canvas.getBoundingClientRect();
-            mouseX = event.clientX - rect.left
-            mouseY = event.clientY - rect.top
-            let tempRect = (getElement(mouseX, mouseY))
-            if(tempRect.type == 'btn'){
-                alert('버튼입니다')
-            }
-        }
-
-        function getElement(x, y) {
-            for (let i = 0; i < elments.length; i++) {
-                let rect = elments[i];
-                if (x > rect.x && x < rect.x + rect.w && y > rect.y && y < rect.y + rect.h) {
-                    return rect;
-                }
-            }
-            return -1;
-        }
-
-        //그리는 함수
-        function draw() {
-            for (let i = 0; i < elments.length; i++) {
-
-            }
-            create_window('window1', 20, 70, 180, 200, "This is Window");
-            create_button('button1', 250, 80, 150, 150, "This is Button");
-            create_button('button2', 500, 500, 200, 200, "This is Button2");
-            create_textbox('text1', 500, 150, 150, 60, "This is Text");
-            create_textbox('text2', 150, 600, 250, 50, "This is Text2");
-        }
-
-
-        function initDraw(canvas) {
-            var mouse = {
-                x: 0,
-                y: 0,
-                startX: 0,
-                startY: 0
-            };
-        }
-
-        draw();
-    </script>
-
-</body>
-
-
-</html>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/14/hw4_1/" data-id="cjopwbfbp0003ckurdzu31301" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/20/hw4_1_2/" data-id="cjoutbx5w0004s8urvd1q3phx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -400,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/hw3/" data-id="cjopwbfbq0004ckurs87zp61v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/hw3/" data-id="cjoutbx5p0001s8ur4dx7qqz8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -444,7 +233,44 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/02/hw2-1/" data-id="cjopwbfbo0002ckurg4xgcxcm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/02/hw2-1/" data-id="cjoutbx5i0000s8urgabkaayf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hw4_1_1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/02/hw4_1_1/" class="article-date">
+  <time datetime="2018-10-02T11:26:27.000Z" itemprop="datePublished">2018-10-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/02/hw4_1_1/">hw4_1_1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Canvas로-도형-그리기"><a href="#Canvas로-도형-그리기" class="headerlink" title="Canvas로 도형 그리기"></a>Canvas로 도형 그리기</h2><p> KLUMS에 업로드 했습니다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/02/hw4_1_1/" data-id="cjoutbx5t0003s8urldzq0vkp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -485,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/18/Revire-about-Hotel-Sites/" data-id="cjopwbfbm0001ckurg85jj3y4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/18/Revire-about-Hotel-Sites/" data-id="cjoutbx5x0005s8urt2czlnjg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -528,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/18/Review-about-SIRI/" data-id="cjopwbfbi0000ckurd70tf7qy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/18/Review-about-SIRI/" data-id="cjoutbx6w0006s8urxslm2v24" class="article-share-link">Share</a>
       
       
     </footer>
@@ -569,11 +395,11 @@
       <ul>
         
           <li>
-            <a href="/2018/11/19/hw4_2/">(no title)</a>
+            <a href="/2018/11/23/hw3_2/">hw3_2</a>
           </li>
         
           <li>
-            <a href="/2018/11/14/hw4_1/">(no title)</a>
+            <a href="/2018/11/20/hw4_1_2/">hw4_1_2</a>
           </li>
         
           <li>
@@ -585,7 +411,7 @@
           </li>
         
           <li>
-            <a href="/2018/09/18/Revire-about-Hotel-Sites/">Review about Hotel Sites</a>
+            <a href="/2018/10/02/hw4_1_1/">hw4_1_1</a>
           </li>
         
       </ul>
